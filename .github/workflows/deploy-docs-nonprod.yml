@@ -1,8 +1,8 @@
-name: Build and deploy docs
+name: Build and deploy docs nonprod
 
 on:
   push:
-    branches: [qa]
+    branches: [nonprod]
     paths:
       - 'docs/**'
       - 'mkdocs.yml'
