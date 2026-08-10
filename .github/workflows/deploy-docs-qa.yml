@@ -2,7 +2,7 @@ name: Build and deploy docs
 
 on:
   push:
-    branches: [nonprod]
+    branches: [qa]
     paths:
       - 'docs/**'
       - 'mkdocs.yml'
@@ -14,9 +14,9 @@ on:
 
 env:
   AWS_REGION: eu-west-1
-  ECR_REPOSITORY: abt-aa-vpe-202502003-nonprod-docs
-  ECS_CLUSTER: abt-aa-vpe-202502003-nonprod-cluster
-  ECS_SERVICE: abt-aa-vpe-202502003-nonprod-docs
+  ECR_REPOSITORY: abt-aa-vpe-202502003-qa-docs
+  ECS_CLUSTER: abt-aa-vpe-202502003-qa-cluster
+  ECS_SERVICE: abt-aa-vpe-202502003-qa-docs
 
 permissions:
   id-token: write
@@ -29,7 +29,7 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: nonprod
+    environment: qa
 
     steps:
       - uses: actions/checkout@v4
